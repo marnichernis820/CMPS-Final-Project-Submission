@@ -1,0 +1,34 @@
+For 9x9
+    The code starts with a function to print the physical board. There is a horizontal and vertical boarder that are created through string functions. There is an "|" after every three spaces indicating a border line. This code creates the board the player sees
+
+    The next function checks if a number can go in a given location(otherwise known as a cell) . If that number is a possibility, the number will be entered. If not the use will see false. This deals with rows, columns and sub 3x3 grids to make sure there are no inaccuracies. 
+
+    Next is the backtracking solver which is the function to solve the board (9x9 in this case). The code takes previous entries and goes back until it works. It considers numbers increasing from 1-9 and then goes back down to ensure the right number is in the cell. It does this for rows and columns. If it is not possible, it will reset. 
+
+    Generate random Sudoku puzzle creates an example game. This creates a board and calls the print board function while making sure numbers remain in the range and can fit. You then select how many clues you want. In a standard Sudoku game, there is a range from 12 to 20 clues. Therefore this range is 12-20 and the numbers 11 or 21 will not work. You can then select the amount of clues you want or pick random for a random number of clues to be generated on the board. 
+
+    Lastly, is the main execution of the puzzle. This includes both generating a board, a specific puzzle, and then solving the puzzle. There are examples of this in the test cases as well as the in-person demonstration I will do in class.
+
+
+For 16x16
+    The 16x16 board is almost identical to the 9x9 code besides one variable change. Rather than using 3 in the print board and is valud function, you would use 4. This is because a 16x16 board is comprised of 4x4 sub grids rather than 3x3 sub grids. Additionally, the range of numbers also increases. Cell entries can now be any integer from 1-16. Also, the number of clues can now go up to 60. These are the only differences from the 9x9 game. The steps of printing the board, generating the game, checking if a number is valid, solving the board, and the main execution remain the same. 
+
+For Manual Game
+    The manual game is the most complex aspect of the code as it is an interactive feature of Sudoku. In this code, I based it off of a 9x9 board. First, import random and time. Random is for the unique generation of numbers and clues and time is for the duration in between moves and entries. 
+
+    The next few steps resemble that of the 9x9 automated python file. First, print the sudoky board with 3x3 boarders. This gets the physical board with horizontal and vertical boarders as well as a vertical and horizonal line to create the 3x3 sub grids. 
+
+    Next, is the function to check if the number is valid in a give cell. This is done by a def is_valid statement. If an entry can be used, it is imputted into the grid and if not it will return false. This applies for both rows and columns. It is used for the initial solving of the board or automatically solving it upon typing finish. 
+
+    Next, is the backtracking solver which is used to solve the sudoku board. It takes entries within the range of the rows and columns and goes back until a correct entry is found. It will increase from 1-9 and then go back down if it passes a number that would work. This ensures the correct number is in the cell upon asking it to automatically solve the board. 
+
+    Similarly to before, generating a random sudoku board occurs by the statement def generate_sudoku(board). This calls the board and while functions to create a unique unsolved sudoku board for the user. 
+
+    Next, is the checking and removing feature. This is used when a user enters an entry into the terminal. Upon pressing enter, the function def check_board will be called. It first looks if the entry is within the row, column, and sib grid range. Then it uses the if incorrect_positions function to see if the entry in the cell is wrong. If it is wrong it will tell the user or it will show it is correct by placing it into the grid in the indicated location. This tells the user where errors are and where they have to guess again. 
+
+   Upon the user typing "finish" a def finish_puzzle function is called indicating to solve the board completely. This is where time is imported and used. It should take 2 seconds for the code to load upon typing finish for a correct board to be generated. The solve_sudoku(board) function is called which correclty solves the board that is randomly given in that session. The folllowing prompts then appear: "The puzzle has been completed!" "Here is the completed puzzle:" and "Thank you for playing! Goodbye" This is what happens when the player stops attempting to play and wants to see the correct answer. 
+  
+   The player also has the option to play the game fully by imputting attempts into cells. They are first greeted with "Choose one of the following options:" "1. Enter your move in the format 'row col num'," "2. Type 'check' to validate your board."  "3. Type 'finish; tp automatically complete the puzzle." or "4. Type 'quit; to exit." The first option is done in the format of the row entry integer followed by a space, then the column entry integer followed by a space, and then the number they wish to imput. If it has the ability to belong in the indicated location, the code will imput it and return the board with that entry. If it does not fit, the user will be told and the board prior to the entry attempt will be returned. At any point, the user can check the board and the code will return the incorrect entries and remove them from the board. If the user wishes to stop playing the game, they will type finish and the return will be the completed board. Lastly, if they wish to quit they will not see the board and it will say "Exiting. Goodbye!"
+
+   The overall main execution has three sections. This includes the initial "Welcome to Interactive Sudoku puzzle.." The code then states "Generating your puzzle.." and finally "Here is your puzzle:" from here the steps from the previous step will be implemented and the user can play the game. 
+
